@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -30,7 +31,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        viewBinding true
+        dataBinding true
     }
 }
 
@@ -40,6 +41,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -51,12 +53,19 @@ dependencies {
     //rounded image view library
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    //GPU image
+
+    // Navigation Component
+    def nav_version = "2.4.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+
+    //GPU image(Open GL)
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
-    //koin library
-    implementation 'org.koin:koin-androidx-viewmodel-ktx:2.3.0'
 
-    //view model
-    implementation 'androidx.lifecycle:lifecycyle-viewmodel-ktx:2.3.1'
+    //koin library
+    def koin_version = "3.1.1"
+    implementation "io.insert-koin:koin-android:$koin_version"
+
 }
